@@ -4,7 +4,6 @@
     <meta charset="UTF-8"/>
     <title>User List</title>
     <style>
-
         h1 {
             text-align: center;
             font-family: "Helvetica Neue", sans-serif;
@@ -77,19 +76,19 @@
             <td th:utext="${user.surname}">...</td>
             <td th:utext="${user.salary}">...</td>
             <td>
-                <a th:href="@{'/updateUser/?userId=' + ${user.id}}">
+                <a th:href="@{'users/edit/?userId='+ ${user.id}}">
                     <input type="button" value="Update" class="operationButton">
                 </a>
-                <a th:href="@{'/removeUser/?userId=' + ${user.id}}">
-                    <input type="button" value="Delete" class="operationButton">
-                </a>
+                <form th:action="@{'users/?userId=' + ${user.id}}" th:method="DELETE">
+                    <input type="submit" value="Delete" class="operationButton">
+                </form>
             </td>
         </tr>
         </tbody>
     </table>
 </div>
 <br><br>
-<input th:type="button" th:value="ADD" onclick="window.location.href = 'newUser'" id="inputAdd"/>
+<input th:type="button" th:value="ADD" onclick="window.location.href = 'users/new'" id="inputAdd"/>
 
 </body>
 </html>

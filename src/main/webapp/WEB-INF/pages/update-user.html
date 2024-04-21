@@ -27,7 +27,7 @@
     </style>
 </head>
 <body>
-<form th:method="POST" th:action="@{/users}" th:object="${user}">
+<form th:method="PATCH" th:action="@{'/users'}" th:object="${user}">
     <input type="hidden" th:field="*{id}" th:value="*{id}"/>
     <label for="name">Name:</label>
     <input type="text" th:field="*{name}" th:name="*{name}" id="name"/>
@@ -38,7 +38,7 @@
     <label for="salary">Salary:</label>
     <input type="text" th:field="*{salary}" th:name="*{salary}" id="salary"/>
     <br><br>
-    <input type="submit" value="Save"/>
+    <input type="submit" value="Edit"/>
 </form>
 
 </body>
